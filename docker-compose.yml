@@ -2,9 +2,11 @@
 version: '3'
 services:
     embulk:
-        container_name: embulk
-        build: ./embulk
-        tty: true
+      container_name: embulk
+      build: ./embulk
+      volumes:
+        - "./data/embulk:/app"
+      tty: true
 
     postgres:
       container_name: postgres2

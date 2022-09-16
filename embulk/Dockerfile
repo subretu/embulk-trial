@@ -33,6 +33,6 @@ RUN embulk gem install embulk-output-postgresql
 RUN embulk gem install embulk-filter-column
 
 WORKDIR /app
-COPY ./config.yml ./
+#COPY ./config.yml ./
 
 CMD [ "bash" ]
