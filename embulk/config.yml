@@ -1,0 +1,29 @@
+in:
+  type: postgresql
+  host: postgres
+  user: postgres
+  password: "postgres"
+  database: postgres
+  query: |
+    select
+      opstime
+      ,value
+    from
+      sample_date_summary
+    ;
+out:
+  type: file
+  path_prefix: "./file/"
+  sequence_format: "."
+  file_ext: csv
+  formatter:
+    type: csv
+    delimiter: ","
+    newline: CRLF
+    newline_in_field: LF
+    charset: UTF-8
+    quote_policy: MINIMAL
+    quote: '"'
+    escape: "\\"
+    null_string: "\\N"
+    default_timezone: 'Asia/Tokyo'
