@@ -1,3 +1,0 @@
-/var/lib/postgres
-
-embulk run config

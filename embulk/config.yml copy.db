@@ -4,18 +4,17 @@ in:
   user: postgres
   password: "postgres"
   database: postgres
-  table: "sample_date_summary"
-  select: "*"
-  incremental: true
-  incremental_columns: [opstime]
-  filters:
-    - type: column
-      add_columns:
-        - {name: origin_value, src: value}
+  query: |
+    select
+      opstime
+      ,value
+    from
+      sample_date_summary
+    ;
 
 out:
   type: postgresql
-  mode: insert
+  mode: truncate_insert
   default_timezone: "Asia/Tokyo"
   host: postgres
   port: 5432
