@@ -8,10 +8,11 @@ in:
   select: "*"
   incremental: true
   incremental_columns: [opstime]
-  filters:
-    - type: column
-      add_columns:
-        - {name: origin_value, src: value}
+
+filters:
+  - type: column
+    add_columns:
+      - {name: origin_value, type: long, src: value}
 
 out:
   type: postgresql
