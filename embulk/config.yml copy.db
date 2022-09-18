@@ -12,6 +12,11 @@ in:
       sample_date_summary
     ;
 
+filters:
+  - type: column
+    add_columns:
+      - {name: origin_value, type: long, src: value}
+
 out:
   type: postgresql
   mode: truncate_insert

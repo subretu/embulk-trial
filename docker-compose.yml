@@ -13,9 +13,9 @@ services:
       shm_size: '1gb'
       image: postgres:14-alpine
       ports:
-        - "5431:5432"
-      #volumes:
-      #  - "./data/postgres/data:/usr/local/pgsql/data"
+        - "5430:5432"
+      volumes:
+        - "./data/postgresql/config/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf"
       environment:
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
