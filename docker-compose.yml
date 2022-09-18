@@ -15,7 +15,7 @@ services:
       ports:
         - "5430:5432"
       volumes:
-        - "./data/postgresql/config/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf"
+        - "./postgresql/config/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf"
       environment:
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres

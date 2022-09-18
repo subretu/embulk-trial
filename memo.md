@@ -7,6 +7,9 @@
 - embulkのコマンド。
 
   ```embulk
+  # guess
+  embulk guess ./guess.yml -o ./config.yml
+
   # dry-run
   embulk preview config.yml
 
