@@ -82,7 +82,7 @@ resource "aws_route_table_association" "route_table_association_private" {
 
 # S3 and Endpoint
 resource "aws_vpc_endpoint" "s3_endpoint" {
-  vpc_id            = aws_vpc.default.id
+  vpc_id            = aws_vpc.test-vpc.id
   service_name      = "com.amazonaws.ap^northeast-1.s3"
   vpc_endpoint_type = "Gateway"
 }
