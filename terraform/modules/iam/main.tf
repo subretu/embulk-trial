@@ -53,7 +53,7 @@ resource "aws_iam_role_policy_attachment" "ssm_policy_attach" {
 
 resource "aws_iam_role_policy_attachment" "s3_policy_attach" {
   role       = aws_iam_role.role.name
-  policy_arn = data.aws_iam_policy.ec2_s3_for_embulk.arn
+  policy_arn = aws_iam_policy.ec2_s3_for_embulk.arn
 }
 
 resource "aws_iam_instance_profile" "systems_manager" {
