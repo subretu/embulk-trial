@@ -28,3 +28,14 @@ module "s3" {
 module "vpc" {
   source = "../../modules/vpc"
 }
+
+module "iam" {
+  source = "../../modules/iam"
+}
+
+module "ec2" {
+  source = "../../modules/ec2"
+
+  iam_instance_profile = module.iam.iam_instance_profile
+  public_subnet_id     = module.vpc.pub_subnet_id
+}
