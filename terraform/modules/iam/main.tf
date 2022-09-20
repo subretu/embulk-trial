@@ -27,16 +27,15 @@ resource "aws_iam_policy" "ec2_s3_for_embulk" {
 
   policy = jsonencode({
     Version = "2012-10-17"
-    Statement = [
-      {
-        Action = [
-          "s3:PutObject",
-          "s3:GetObject",
-          "s3:DeleteObject",
-          "s3:PutObjectAcl"
-        ]
-        Effect   = "Allow"
-        Resource = "arn:aws:s3::${var.s3_bucket_name}/*"
+    Statement = [{
+      Action = [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:DeleteObject",
+        "s3:PutObjectAcl"
+      ]
+      Effect   = "Allow"
+      Resource = "arn:aws:s3::${var.s3_bucket_name}/*"
       },
       {
         Action = [
@@ -47,7 +46,7 @@ resource "aws_iam_policy" "ec2_s3_for_embulk" {
         ]
         Effect   = "Allow"
         Resource = "arn:aws:s3:::${var.s3_bucket_name}"
-      },
+      }
     ]
   })
 }
