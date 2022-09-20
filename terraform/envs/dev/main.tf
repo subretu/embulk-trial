@@ -31,6 +31,8 @@ module "vpc" {
 
 module "iam" {
   source = "../../modules/iam"
+
+  s3_bucket_name = module.s3.s3_bucket_name
 }
 
 module "ec2" {

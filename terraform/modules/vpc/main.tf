@@ -87,7 +87,7 @@ resource "aws_vpc_endpoint" "s3_endpoint" {
   vpc_endpoint_type = "Gateway"
 }
 
-resource "aws_vpc_endpoint_route_table_association" "private_s3" {
+resource "aws_vpc_endpoint_route_table_association" "public_s3" {
   vpc_endpoint_id = aws_vpc_endpoint.s3_endpoint.id
-  route_table_id  = aws_route_table.route-table-private.id
+  route_table_id  = aws_route_table.route-table-public.id
 }
