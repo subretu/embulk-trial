@@ -23,6 +23,7 @@ data "aws_iam_policy" "systems_manager" {
 }
 
 data "aws_iam_policy_document" "ec2_s3_for_embulk_document" {
+  version = "2012-10-17"
   statement {
     actions = ["s3:PutObject",
       "s3:GetObject",
