@@ -22,6 +22,7 @@ data "aws_iam_policy" "systems_manager" {
   arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
+/*
 data "aws_iam_policy_document" "ec2_s3_for_embulk_document" {
   version = "2012-10-17"
   statement {
@@ -46,6 +47,11 @@ resource "aws_iam_policy" "ec2_s3_for_embulk" {
   name   = "ec2_s3_for_embulk"
   policy = data.aws_iam_policy_document.ec2_s3_for_embulk_document.json
 }
+*/
+
+data "aws_iam_policy" "ec2_s3_for_embulk" {
+  arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+}
 
 resource "aws_iam_role_policy_attachment" "ssm_policy_attach" {
   role       = aws_iam_role.role.name
@@ -54,7 +60,7 @@ resource "aws_iam_role_policy_attachment" "ssm_policy_attach" {
 
 resource "aws_iam_role_policy_attachment" "s3_policy_attach" {
   role       = aws_iam_role.role.name
-  policy_arn = aws_iam_policy.ec2_s3_for_embulk.arn
+  policy_arn = data.aws_iam_policy.ec2_s3_for_embulk.arn
 }
 
 resource "aws_iam_instance_profile" "systems_manager" {
