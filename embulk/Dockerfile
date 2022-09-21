@@ -31,6 +31,8 @@ RUN embulk gem install embulk-input-postgresql
 RUN embulk gem install embulk-output-postgresql
 # filter用プラグインをインストール
 RUN embulk gem install embulk-filter-column
+# S3用プラグインのインストール
+RUN embulk gem install embulk-output-s3
 
 WORKDIR /app
 #COPY ./config.yml ./

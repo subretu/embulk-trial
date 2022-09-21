@@ -1,0 +1,25 @@
+in:
+  type: file
+  path_prefix: ./test.csv
+  parser:
+    charset: UTF-8
+    newline: LF
+    type: csv
+    delimiter: ','
+    quote: '"'
+    escape: '"'
+    trim_if_not_quoted: false
+    skip_header_lines: 1
+    allow_extra_columns: false
+    allow_optional_columns: false
+    columns:
+    - {name: opstime, type: timestamp, format: '%Y-%m-%d %H:%M:%S'}
+    - {name: value, type: long}
+out:
+  type: s3
+  path_prefix: sample
+  file_ext: .csv
+  bucket: embulk-test-s3-bucket-subretu
+  endpoint: s3-ap-northeast-1.amazonaws.com
+  formatter:
+    type: csv
