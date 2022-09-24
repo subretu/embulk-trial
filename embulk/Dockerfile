@@ -26,6 +26,10 @@ RUN mkdir -p ${PATH_TO_EMBULK} \
     && curl -k --create-dirs -o ${PATH_TO_EMBULK}/embulk -L "http://dl.embulk.org/embulk-latest.jar" \
     && chmod +x ${PATH_TO_EMBULK}/embulk
 
+# digdag install
+RUN curl -o ~/bin/digdag --create-dirs -L "https://dl.digdag.io/digdag-latest" \
+    && chmod +x ~/bin/digdag
+
 # PostgreSQL用プラグインのインストール
 RUN embulk gem install embulk-input-postgresql
 RUN embulk gem install embulk-output-postgresql
