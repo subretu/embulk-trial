@@ -1,0 +1,7 @@
+timezone: "Asia/Tokyo"
+
+schedule:
+  daily>: 07:00:00
+
++task1:
+  sh>: embulk run ../../config.ym

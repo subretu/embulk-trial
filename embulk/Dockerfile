@@ -38,6 +38,9 @@ RUN embulk gem install embulk-filter-column
 # S3用プラグインのインストール
 RUN embulk gem install embulk-output-s3
 
+# digdag用ワークフォルダの作成
+RUN mkdir -p /app/digdag
+
 WORKDIR /app
 #COPY ./config.yml ./
 

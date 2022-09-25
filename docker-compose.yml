@@ -5,6 +5,7 @@ services:
       build: ./embulk
       volumes:
         - "./data/embulk:/app"
+        - "./data/digdag:/app/digdag"
       tty: true
 
     postgres:
@@ -13,8 +14,8 @@ services:
       image: postgres:14-alpine
       ports:
         - "5430:5432"
-      volumes:
-        - "./postgresql/config/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf"
+      #volumes:
+      #  - "./postgresql/config/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf"
       environment:
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
