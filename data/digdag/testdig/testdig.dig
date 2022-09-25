@@ -1,7 +1,7 @@
 timezone: "Asia/Tokyo"
 
 schedule:
-  daily>: 07:00:00
+  cron>: '*/1 * * * *'
 
 +task1:
-  sh>: embulk run ../../config.ym
+  sh>: embulk run config.yml

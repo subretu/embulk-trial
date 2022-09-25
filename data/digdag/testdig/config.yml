@@ -1,0 +1,26 @@
+in:
+  type: postgresql
+  host: postgres
+  user: postgres
+  password: "postgres"
+  database: postgres
+  table: "sample_date_summary"
+  select: "*"
+  incremental: true
+  incremental_columns: [opstime]
+
+filters:
+  - type: column
+    add_columns:
+      - {name: origin_value, type: long, src: value}
+
+out:
+  type: postgresql
+  mode: insert
+  default_timezone: "Asia/Tokyo"
+  host: postgres
+  port: 5432
+  user: postgres
+  password: "postgres"
+  database: postgres
+  table: output_sample
