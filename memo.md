@@ -1,4 +1,5 @@
-## 作業メモ
+# 作業メモ
+## embulk
 - EC2にdocker composeをインストール方法は下記を参照。
   - https://kacfg.com/aws-ec2-docker/#EC2Docker_Composedocker-compose
 - embulkコンテナ→postgresqlコンテナへの通信設定。
@@ -19,3 +20,7 @@
   embulk run config.yml
 
   ```
+
+## digdag
+- embulkを実行させるときのymlはどこにおくべきか？
+  - digファイルと同じディレクトリか？
