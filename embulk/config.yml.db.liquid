@@ -1,9 +1,9 @@
 in:
   type: postgresql
   host: postgres
-  user: postgres
-  password: "postgres"
-  database: postgres
+  user: {{ env.postgres_user }}
+  password: {{ env.postgres_password }}
+  database: {{ env.postgres_database }}
   table: "sample_date_summary"
   select: "*"
   incremental: true
@@ -20,7 +20,7 @@ out:
   default_timezone: "Asia/Tokyo"
   host: postgres
   port: 5432
-  user: postgres
-  password: "postgres"
-  database: postgres
+  user: {{ env.postgres_user }}
+  password: {{ env.postgres_password }}
+  database: {{ env.postgres_database }}
   table: output_sample

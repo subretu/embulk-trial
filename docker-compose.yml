@@ -6,6 +6,8 @@ services:
       volumes:
         - "./data/embulk:/app"
         - "./data/digdag:/app/digdag"
+      env_file:
+          - ./.env
       tty: true
 
     postgres:

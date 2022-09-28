@@ -20,6 +20,7 @@
   embulk run config.yml
 
   ```
+- 設定ファイルの拡張子を`.yml.liquid`に変更することでファイル内で環境変数を使用することが可能。
 
 ## digdag
 - embulkを実行させるときのymlはどこにおくべきか？
