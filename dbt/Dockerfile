@@ -28,7 +28,7 @@ RUN python -m pip install --upgrade pip setuptools wheel --no-cache-dir
 # dbt-postgres
 RUN python -m pip install --no-cache-dir dbt-postgres
 
-#COPY profiles.yml /root/.dbt/profiles.yml
+COPY profiles.yml /root/.dbt/profiles.yml
 
 WORKDIR /usr/app/dbt/
 VOLUME /usr/app
