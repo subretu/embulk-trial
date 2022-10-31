@@ -4,6 +4,6 @@ select
   ,opstime::date as opsdate
   ,sum(value) as value
 from
-	test
+	test_add
 group by
 	id, opsdate

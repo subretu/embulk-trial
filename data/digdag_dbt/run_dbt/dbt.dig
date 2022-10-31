@@ -1,0 +1,7 @@
+timezone: "Asia/Tokyo"
+
+schedule:
+  cron>: '*/3 * * * *'
+
++task1:
+  sh>: dbt run

@@ -4,7 +4,7 @@ in:
   user: postgres
   password: "postgres"
   database: postgres
-  table: "sample_date_summary"
+  table: "test"
   select: "*"
   incremental: true
   incremental_columns: [opstime]
@@ -12,7 +12,7 @@ in:
 filters:
   - type: column
     add_columns:
-      - {name: origin_value, type: long, src: value}
+      - {name: add_value, type: long, src: value}
 
 out:
   type: postgresql
@@ -23,4 +23,4 @@ out:
   user: postgres
   password: "postgres"
   database: postgres
-  table: output_sample
+  table: test_add

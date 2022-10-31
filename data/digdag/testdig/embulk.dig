@@ -4,4 +4,4 @@ schedule:
   cron>: '*/1 * * * *'
 
 +task1:
-  sh>: embulk run /app/config.yml
+  sh>: embulk run /app/config.yml.liquid
