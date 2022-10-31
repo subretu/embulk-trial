@@ -12,6 +12,7 @@ RUN apt-get update \
     ca-certificates \
     libpq-dev \
     vim \
+    curl \
   && apt-get clean \
   && rm -rf \
     /var/lib/apt/lists/* \
@@ -27,6 +28,13 @@ RUN python -m pip install --upgrade pip setuptools wheel --no-cache-dir
 
 # dbt-postgres
 RUN python -m pip install --no-cache-dir dbt-postgres
+
+# digdag install
+RUN curl -o ~/bin/digdag --create-dirs -L "https://dl.digdag.io/digdag-latest" \
+    && chmod +x ~/bin/digdag
+
+# digdag用ワークフォルダの作成
+RUN mkdir -p /app/digdag
 
 COPY profiles.yml /root/.dbt/profiles.yml
 

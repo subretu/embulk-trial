@@ -27,6 +27,7 @@ services:
       container_name: dbt
       build: ./dbt
       volumes:
-        - ./data/dbt/dbt_projects:/usr/app/dbt
+        - "./data/dbt/dbt_projects:/usr/app/dbt"
+        - "./data/digdag_dbt:/app/digdag"
       ports:
         - 8080:8080
