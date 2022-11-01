@@ -1,33 +1,20 @@
-FROM python:3.9.12-slim-bullseye
-
-# System setup
-RUN apt-get update \
-  && apt-get dist-upgrade -y \
-  && apt-get install -y --no-install-recommends \
-    git \
-    ssh-client \
-    software-properties-common \
-    make \
-    build-essential \
-    ca-certificates \
-    libpq-dev \
-    vim \
-    curl \
-  && apt-get clean \
-  && rm -rf \
-    /var/lib/apt/lists/* \
-    /tmp/* \
-    /var/tmp/*
+FROM openjdk:8-slim
 
 # Env vars
 ENV PYTHONIOENCODING=utf-8
 ENV LANG=C.UTF-8
 
+# System setup
+RUN apt-get -y update && apt-get -y upgrade
+RUN apt-get install -y vim git zip unzip less curl
+RUN apt-get install -y ca-certificates
+RUN apt-get install -y libpq-dev python3 python3-pip build-essential
+
 # Update python
-RUN python -m pip install --upgrade pip setuptools wheel --no-cache-dir
+RUN pip3 install setuptools wheel --no-cache-dir
 
 # dbt-postgres
-RUN python -m pip install --no-cache-dir dbt-postgres
+RUN pip3 install --no-cache-dir dbt-postgres
 
 # digdag install
 RUN curl -o ~/bin/digdag --create-dirs -L "https://dl.digdag.io/digdag-latest" \

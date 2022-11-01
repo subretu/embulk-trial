@@ -1,7 +1,7 @@
 timezone: "Asia/Tokyo"
 
 schedule:
-  cron>: '*/3 * * * *'
+  cron>: '*/1 * * * *'
 
-+task1:
-  sh>: dbt run
++step1:
+  sh>: /app/digdag/run_dbt/task.sh
