@@ -29,7 +29,6 @@ RUN mkdir -p /app/digdag/run_dbt/logs/accesslogs
 RUN mkdir -p /app/digdag/run_dbt/logs/tasklogs
 
 COPY profiles.yml /root/.dbt/profiles.yml
-COPY server.properties  /app/digdag/run_dbt/server.properties
 
 WORKDIR /usr/app/dbt/
 VOLUME /usr/app
