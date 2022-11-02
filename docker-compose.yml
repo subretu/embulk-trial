@@ -6,6 +6,8 @@ services:
       volumes:
         - "./data/embulk:/app"
         - "./data/digdag:/app/digdag"
+      ports:
+        - "65432:65432"
       env_file:
           - ./.env
       tty: true

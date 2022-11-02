@@ -28,3 +28,7 @@
   ```sh
   digdag scheduler
   ```
+- serverの起動
+  ```sh
+  digdag  server  --bind 0.0.0.0 --port 65432 -m
+  ```
