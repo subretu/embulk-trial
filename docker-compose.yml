@@ -29,6 +29,7 @@ services:
       volumes:
         - "./data/dbt/dbt_projects:/usr/app/dbt"
         - "./data/digdag_dbt:/app/digdag"
+        - "./data/tmp:/tmp"
       ports:
         - "65432:65432"
         - "65433:65433"
