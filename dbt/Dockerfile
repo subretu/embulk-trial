@@ -7,7 +7,7 @@ ENV LANG=C.UTF-8
 # System setup
 RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get install -y vim git zip unzip less curl
-RUN apt-get install -y ca-certificates
+RUN apt-get install -y ca-certificates procps
 RUN apt-get install -y libpq-dev python3 python3-pip build-essential
 
 # install other package
