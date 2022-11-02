@@ -10,10 +10,10 @@ RUN apt-get install -y vim git zip unzip less curl
 RUN apt-get install -y ca-certificates
 RUN apt-get install -y libpq-dev python3 python3-pip build-essential
 
-# Update python
-RUN pip3 install setuptools wheel --no-cache-dir
+# install other package
+RUN pip3 install setuptools wheel
 
-# dbt-postgres
+# install dbt-postgres
 RUN pip3 install --no-cache-dir dbt-postgres
 
 # digdag install
@@ -21,9 +21,15 @@ RUN curl -o ~/bin/digdag --create-dirs -L "https://dl.digdag.io/digdag-latest" \
     && chmod +x ~/bin/digdag
 
 # digdag用ワークフォルダの作成
-RUN mkdir -p /app/digdag
+RUN mkdir -p /app/digdag/run_dbt
+
+# digdag server用フォルダの作成
+RUN mkdir -p /app/digdag/run_dbt/logs
+RUN mkdir -p /app/digdag/run_dbt/logs/accesslogs
+RUN mkdir -p /app/digdag/run_dbt/logs/tasklogs
 
 COPY profiles.yml /root/.dbt/profiles.yml
+COPY server.properties  /app/digdag/run_dbt/server.properties
 
 WORKDIR /usr/app/dbt/
 VOLUME /usr/app

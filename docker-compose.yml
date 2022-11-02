@@ -6,8 +6,6 @@ services:
       volumes:
         - "./data/embulk:/app"
         - "./data/digdag:/app/digdag"
-      ports:
-        - "65432:65432"
       env_file:
           - ./.env
       tty: true
@@ -32,4 +30,5 @@ services:
         - "./data/dbt/dbt_projects:/usr/app/dbt"
         - "./data/digdag_dbt:/app/digdag"
       ports:
-        - 8080:8080
+        - "65432:65432"
+        - "65433:65433"
