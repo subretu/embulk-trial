@@ -15,5 +15,6 @@ target-path: "target"
 clean-targets: [target, dbt_packages]
 
 models:
-  dbt_training:
-    example:
+  dbt_project:
+    +enabled: true
+    +materialized: view
