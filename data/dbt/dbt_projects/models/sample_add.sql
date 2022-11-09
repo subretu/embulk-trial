@@ -9,7 +9,7 @@ select
   ,opstime
   ,value
 from
-  sample_base
+  {{ source('develop', 'sample_base') }}
 
 {% if is_incremental() %}
 
