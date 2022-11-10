@@ -1,4 +1,4 @@
-dbt_project_dw:
+
   target: dev
   outputs:
     dev:
@@ -9,6 +9,20 @@ dbt_project_dw:
       port: 5432
       dbname: postgres
       schema: public
+      threads: 1
+      keepalives_idle: 0
+      connect_timeout: 10
+
+  target: itg
+  outputs:
+    itg:
+      type: postgres
+      host: postgres
+      user: postgres
+      password: postgres
+      port: 5432
+      dbname: postgres
+      schema: hogehoge
       threads: 1
       keepalives_idle: 0
       connect_timeout: 10
