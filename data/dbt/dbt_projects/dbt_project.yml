@@ -1,8 +1,8 @@
-name: 'dbt_project'
+name: "dbt_project"
 config-version: 2
-version: '1.0.0'
+version: "1.0.0"
 
-profile: 'dbt_project_dw'
+profile: "dbt_project_dw"
 
 model-paths: ["models"]
 analysis-paths: ["analysis"]
